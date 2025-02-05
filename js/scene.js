@@ -11,7 +11,7 @@ let controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableZoom = true;
 
 var sphere = new THREE.Mesh(
-	new THREE.SphereGeometry(10.0, 32, 32),
+	new THREE.PlaneGeometry(10, 10, 32, 32),
 	new THREE.MeshPhongMaterial({ color: 0x000000, wireframe: true })
 )
 sphere.position.set(0, 0, -10);
@@ -23,8 +23,8 @@ pointLight.position.y = 50;
 pointLight.position.z = 130;
 scene.add(pointLight);
 
-var hoverMesh = new THREE.Mesh(new THREE.SphereGeometry(0.1, 32, 32), new THREE.MeshStandardMaterial({ color: 0x0000ff}));
-var markerMesh = new THREE.Mesh(new THREE.SphereGeometry(0.1, 32, 32), new THREE.MeshStandardMaterial({ color: 0xff0000}));
+var hoverMesh = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 1.0), new THREE.MeshStandardMaterial({ color: 0x0000ff}));
+var markerMesh = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 1.0), new THREE.MeshStandardMaterial({ color: 0xff0000}));
 
 let snapRadius = 100; // How big radius we search for vertices near the mouse click
 let snap = new GridSnap(scene, renderer, camera, sphere, snapRadius, hoverMesh, markerMesh);

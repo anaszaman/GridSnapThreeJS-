@@ -38,7 +38,7 @@ GridSnap.prototype.getNearestVertexFromEvent = function(event) {
 	// Change coordinate system to [-1, +1]x[-1, +1]
 	mouse.set( ( mouse.x * 2 ) - 1, - ( mouse.y * 2 ) + 1 );
 
-	this.raycaster.setFromCamera(mouse, this.camera);
+	this.raycaster.setFromCamera(new THREE.Vector2(0.1, 0.0), this.camera);
 	var intersects = this.raycaster.intersectOctreeObject(this.intersectMesh, true);
 
 	if (intersects.length > 0) {
